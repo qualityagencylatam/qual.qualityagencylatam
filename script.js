@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // -----------------------------------------------------------
   // Time zone converter
-  // Business hours base: Mon–Fri, 07:00–19:00 Brasília (GMT-3)
+  // Business hours base: Mon–Fri, 09:00–18:00 (UTC-3)
   // -----------------------------------------------------------
   var tzSelect = document.getElementById('tzSelect');
   var tzResult = document.getElementById('tzResult');
@@ -172,8 +172,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var baseOffset = -3; // Brasília
     var diff = targetOffset - baseOffset;
 
-    var startHour = 7 + diff;
-    var endHour = 19 + diff;
+    var startHour = 9 + diff;
+    var endHour = 18 + diff;
 
     var dayNote = '';
     if (startHour < 0 || startHour >= 24) dayNote = ' (previous/next day may apply)';
@@ -189,23 +189,95 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // -----------------------------------------------------------
-  // Language buttons — connected to Weglot's real translation API
-  // Current free-plan language: German (DE)
+  // Language buttons — EN / PT-BR (PT-BR translated via Google Translate)
   // -----------------------------------------------------------
   var langButtons = document.querySelectorAll('.lang-btn');
+
+  function setActiveLang(lang) {
+    langButtons.forEach(function (b) {
+      b.classList.toggle('lang-btn--active', b.dataset.lang === lang);
+    });
+  }
+
+  function setGoogTransCookie(value) {
+    var host = location.hostname;
+    var base = 'googtrans=' + value + '; path=/';
+    document.cookie = base;
+    if (host.indexOf('.') !== -1) {
+      document.cookie = base + '; domain=' + host;
+      document.cookie = base + '; domain=.' + host;
+    }
+  }
+
+  function clearGoogTransCookie() {
+    var host = location.hostname;
+    var exp = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+    document.cookie = exp;
+    if (host.indexOf('.') !== -1) {
+      document.cookie = exp + '; domain=' + host;
+      document.cookie = exp + '; domain=.' + host;
+    }
+  }
+
+  function currentLangFromCookie() {
+    return /(?:^|;\s*)googtrans=\/en\/pt(?:;|$)/.test(document.cookie) ? 'pt-br' : 'en';
+  }
+
+  var gtLoaded = false;
+  function loadGoogleTranslate() {
+    if (gtLoaded) return;
+    gtLoaded = true;
+    window.googleTranslateElementInit = function () {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'pt',
+        autoDisplay: false
+      }, 'google_translate_element');
+    };
+    var gs = document.createElement('script');
+    gs.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    gs.async = true;
+    document.head.appendChild(gs);
+  }
+
+  // Apply translation by driving Google's hidden language <select>
+  function applyPortuguese(retries) {
+    var combo = document.querySelector('select.goog-te-combo');
+    if (combo) {
+      combo.value = 'pt';
+      combo.dispatchEvent(new Event('change'));
+    } else if (retries > 0) {
+      setTimeout(function () { applyPortuguese(retries - 1); }, 300);
+    }
+  }
+
   langButtons.forEach(function (btn) {
     btn.addEventListener('click', function () {
-      langButtons.forEach(function (b) { b.classList.remove('lang-btn--active'); });
-      btn.classList.add('lang-btn--active');
-
       var lang = btn.dataset.lang;
-      // Weglot.switchTo() is provided by the Weglot script loaded in <head>.
-      // It only works once a real api_key has been added there.
-      if (window.Weglot && typeof window.Weglot.switchTo === 'function') {
-        window.Weglot.switchTo(lang);
+      if (lang === currentLangFromCookie()) { setActiveLang(lang); return; }
+
+      if (lang === 'pt-br') {
+        setActiveLang('pt-br');
+        setGoogTransCookie('/en/pt');
+        document.documentElement.setAttribute('lang', 'pt-BR');
+        loadGoogleTranslate();
+        applyPortuguese(30);
+      } else {
+        // Back to English: clear cookie and reload to restore original text
+        setActiveLang('en');
+        clearGoogTransCookie();
+        document.documentElement.setAttribute('lang', 'en');
+        location.reload();
       }
     });
   });
+
+  // Keep Portuguese active after a reload / return visit in the same browser
+  if (currentLangFromCookie() === 'pt-br') {
+    setActiveLang('pt-br');
+    document.documentElement.setAttribute('lang', 'pt-BR');
+    loadGoogleTranslate();
+  }
 
   // -----------------------------------------------------------
   // Contact form — submit via fetch to Formspree, show inline
@@ -228,7 +300,7 @@ document.addEventListener('DOMContentLoaded', function () {
           if (response.ok) {
             contactForm.innerHTML =
               '<p class="form-success">Thank you — your request has been received. ' +
-              'We reply during business hours: Monday to Friday, 7:00 AM – 7:00 PM (Brasília time).</p>';
+              'We reply during business hours: Monday to Friday, 9:00 AM – 6:00 PM (UTC-3). Special hours by arrangement.</p>';
           } else {
             if (btn) { btn.textContent = originalText; btn.disabled = false; }
             alert('Something went wrong sending your request. Please try again or contact us directly via WhatsApp.');

@@ -42,10 +42,11 @@
   },
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Rua Barcelos Domingos, 94 - Campo Grande",
+    "streetAddress": "Rua Professor Taciel Cylleno, 264 - Recreio dos Bandeirantes",
     "addressLocality": "Rio de Janeiro",
+    "addressRegion": "RJ",
     "addressCountry": "BR",
-    "postalCode": "23080-020"
+    "postalCode": "22790-010"
   },
   "areaServed": ["Europe", "United States", "United Kingdom"],
   "priceRange": "€€"
@@ -74,6 +75,7 @@
 </script>
 </head>
 <body>
+<div id="google_translate_element" style="display:none"></div>
 
 <!-- ============ TRANSLATE BAR ============ -->
 <div class="translate-bar" role="region" aria-label="Language selector">
@@ -81,6 +83,7 @@
     <span class="translate-bar__label">Read in your language:</span>
     <div class="translate-bar__langs" id="googleTranslateMount">
       <button class="lang-btn lang-btn--active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="pt-br">PT-BR</button>
       <!--
         Idiomas adicionais (FR, FI, PT-PT, PT-BR) ficam prontos para reativar
         quando o plano Weglot for ampliado. Basta:
@@ -91,7 +94,6 @@
         <button class="lang-btn" data-lang="fr">FR</button>
         <button class="lang-btn" data-lang="fi">FI</button>
         <button class="lang-btn" data-lang="pt-pt">PT-PT</button>
-        <button class="lang-btn" data-lang="pt-br">PT-BR</button>
       -->
     </div>
   </div>
@@ -304,6 +306,7 @@
         <button class="portfolio__tab portfolio__tab--active" role="tab" aria-selected="true" aria-controls="panel-cosmetics" id="tab-cosmetics" data-panel="panel-cosmetics">Cosmetics</button>
         <button class="portfolio__tab" role="tab" aria-selected="false" aria-controls="panel-food" id="tab-food" data-panel="panel-food">Food &amp; Beverage</button>
         <button class="portfolio__tab" role="tab" aria-selected="false" aria-controls="panel-consumer-goods" id="tab-consumer-goods" data-panel="panel-consumer-goods">Consumer Goods</button>
+        <button class="portfolio__tab" role="tab" aria-selected="false" aria-controls="panel-3d" id="tab-3d" data-panel="panel-3d">Tridimensional</button>
       </div>
 
       <div class="portfolio__panels">
@@ -467,6 +470,67 @@
             </button>
           </div>
         </div>
+
+        <div class="portfolio__panel" id="panel-3d" role="tabpanel" aria-labelledby="tab-3d">
+          <p class="portfolio__designer-name">Juliano Lisboa <span>— 3D Specialist</span></p>
+          <div class="portfolio__carousel-wrap">
+            <button class="portfolio__arrow portfolio__arrow--prev" type="button" aria-label="Previous images" data-dir="-1">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <div class="portfolio__carousel" id="portfolioCarousel3D" aria-label="Tridimensional portfolio image carousel">
+              <div class="portfolio__track">
+                <div class="portfolio__slide" data-full="images/portfolio/3d/3d-01-puret-black-tea-bottles.jpg">
+                  <img src="images/portfolio/3d/thumb/3d-01-puret-black-tea-bottles.jpg" alt="Pure T black tea with fruit bottle renders, lemon and peach flavors" loading="lazy">
+                </div>
+                <div class="portfolio__slide" data-full="images/portfolio/3d/3d-02-dolce-gabbana-the-one-perfume.jpg">
+                  <img src="images/portfolio/3d/thumb/3d-02-dolce-gabbana-the-one-perfume.jpg" alt="Dolce & Gabbana The One perfume bottle and box 3D render" loading="lazy">
+                </div>
+                <div class="portfolio__slide" data-full="images/portfolio/3d/3d-03-amstel-lager-can.jpg">
+                  <img src="images/portfolio/3d/thumb/3d-03-amstel-lager-can.jpg" alt="Amstel Lager can 3D render with condensation" loading="lazy">
+                </div>
+                <div class="portfolio__slide" data-full="images/portfolio/3d/3d-04-perfume-bottles-lineup.jpg">
+                  <img src="images/portfolio/3d/thumb/3d-04-perfume-bottles-lineup.jpg" alt="Lineup of six fragrance bottle renders with distinct label designs" loading="lazy">
+                </div>
+                <div class="portfolio__slide" data-full="images/portfolio/3d/3d-05-nutri-algae-supplement-bottles.jpg">
+                  <img src="images/portfolio/3d/thumb/3d-05-nutri-algae-supplement-bottles.jpg" alt="Nutri Algae supplement bottle renders — Sea, Vita and Vegan variants" loading="lazy">
+                </div>
+                <div class="portfolio__slide" data-full="images/portfolio/3d/3d-06-fortlife-ginkgo-biloba-packaging.jpg">
+                  <img src="images/portfolio/3d/thumb/3d-06-fortlife-ginkgo-biloba-packaging.jpg" alt="FortLife Ginkgo Biloba carton and bottle 3D renders" loading="lazy">
+                </div>
+                <div class="portfolio__slide" data-full="images/portfolio/3d/3d-07-gioye-beauty-eye-roll-on.jpg">
+                  <img src="images/portfolio/3d/thumb/3d-07-gioye-beauty-eye-roll-on.jpg" alt="Gioye Beauty lifting eye roll-on bottle and packaging render" loading="lazy">
+                </div>
+                <div class="portfolio__slide" data-full="images/portfolio/3d/3d-08-fortskin-facial-serum-dropper.jpg">
+                  <img src="images/portfolio/3d/thumb/3d-08-fortskin-facial-serum-dropper.jpg" alt="FortSkin facial serum dropper bottle 3D render" loading="lazy">
+                </div>
+                <div class="portfolio__slide" data-full="images/portfolio/3d/3d-09-gengigard-mouthwash-uniphar.jpg">
+                  <img src="images/portfolio/3d/thumb/3d-09-gengigard-mouthwash-uniphar.jpg" alt="Uniphar Gengigard antiseptic mouthwash carton and bottle render" loading="lazy">
+                </div>
+                <div class="portfolio__slide" data-full="images/portfolio/3d/3d-10-natuflores-nelson-freitas-grooming-set.jpg">
+                  <img src="images/portfolio/3d/thumb/3d-10-natuflores-nelson-freitas-grooming-set.jpg" alt="Natuflores by Nelson Freitas grooming product line 3D render" loading="lazy">
+                </div>
+                <div class="portfolio__slide" data-full="images/portfolio/3d/3d-11-nativa-agua-mineral-premium-bottles.jpg">
+                  <img src="images/portfolio/3d/thumb/3d-11-nativa-agua-mineral-premium-bottles.jpg" alt="Nativa Premium mineral water bottle renders, still and sparkling" loading="lazy">
+                </div>
+                <div class="portfolio__slide" data-full="images/portfolio/3d/3d-12-fortlife-silimarina-capsules.jpg">
+                  <img src="images/portfolio/3d/thumb/3d-12-fortlife-silimarina-capsules.jpg" alt="FortLife Silimarina capsule box and blister pack 3D render" loading="lazy">
+                </div>
+                <div class="portfolio__slide" data-full="images/portfolio/3d/3d-13-fortmagri-berberina-supplement.jpg">
+                  <img src="images/portfolio/3d/thumb/3d-13-fortmagri-berberina-supplement.jpg" alt="Fortmagri Berberina supplement bottle and carton 3D render" loading="lazy">
+                </div>
+                <div class="portfolio__slide" data-full="images/portfolio/3d/3d-14-nativa-agua-mineral-natural-bottles.jpg">
+                  <img src="images/portfolio/3d/thumb/3d-14-nativa-agua-mineral-natural-bottles.jpg" alt="Nativa Água Mineral Natural bottle renders, three cap colors" loading="lazy">
+                </div>
+                <div class="portfolio__slide" data-full="images/portfolio/3d/3d-15-marylife-perfume-collection.jpg">
+                  <img src="images/portfolio/3d/thumb/3d-15-marylife-perfume-collection.jpg" alt="MaryLife perfume collection bottle and box renders" loading="lazy">
+                </div>
+              </div>
+            </div>
+            <button class="portfolio__arrow portfolio__arrow--next" type="button" aria-label="Next images" data-dir="1">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -554,7 +618,7 @@
         <button type="submit" class="btn btn--gold btn--full">Send Request</button>
 
         <p class="contact-form__hours">
-          We reply during business hours: <strong>Monday to Friday, 7:00 AM – 7:00 PM (Brasília time)</strong>.
+          We reply during business hours: <strong>Monday to Friday, 9:00 AM – 6:00 PM (UTC-3)</strong>. Special hours by arrangement.
         </p>
       </form>
 
@@ -562,7 +626,7 @@
       <div class="tz-widget">
         <p class="tz-widget__label">Select your time zone to see our availability converted to your local time:</p>
         <select id="tzSelect" class="tz-widget__select">
-          <option value="-3">Brasília Time (GMT-3) — Our local time</option>
+          <option value="-3">Brasília Time (UTC-3) — Our local time</option>
           <option value="0">GMT / Lisbon / London (GMT+0)</option>
           <option value="1">Central Europe — Paris, Berlin, Madrid, Rome (GMT+1)</option>
           <option value="2">Eastern Europe — Helsinki, Athens, Bucharest (GMT+2)</option>
@@ -572,13 +636,20 @@
           <option value="-8">US Pacific — Los Angeles, Seattle (GMT-8)</option>
         </select>
         <p class="tz-widget__result" id="tzResult">Business hours in your time zone will appear here.</p>
+        <p class="tz-widget__base">Monday to Friday, 9:00 AM – 6:00 PM (UTC-3). Special hours by arrangement.</p>
       </div>
 
       <!-- GOOGLE CALENDAR CTA -->
+      <!--
+        BOOK A CALL — Google Calendar (qualityagencylatam@gmail.com)
+        Para sincronização real de horários livres, crie a "Appointment schedule" no Google Agenda
+        (Criar > Programação de compromissos), com disponibilidade seg–sex 9h–18h, fuso America/Sao_Paulo,
+        e cole o link da página de agendamento no href abaixo (substitui o link provisório).
+      -->
       <div class="call-cta">
         <p class="call-cta__label">Want to speak directly with us over a video call?</p>
-        <a href="https://calendar.google.com/calendar/u/0/r/week/2026/7/12" target="_blank" rel="noopener" class="btn btn--outline-gold">Book a Call</a>
-        <p class="call-cta__note">Calls are available Monday–Friday, 7:00 AM – 7:00 PM (Brasília time).</p>
+        <a id="bookCallBtn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Video%20Call%20with%20Quality%20Agency%20LATAM&amp;details=Call%20request%20for%20Quality%20Agency%20LATAM.%20Available%20Monday%20to%20Friday%2C%209%3A00%20AM%20%E2%80%93%206%3A00%20PM%20(UTC-3).&amp;add=qualityagencylatam%40gmail.com&amp;ctz=America%2FSao_Paulo" target="_blank" rel="noopener" class="btn btn--outline-gold">Book a Call</a>
+        <p class="call-cta__note">Calls are available Monday–Friday, 9:00 AM – 6:00 PM (UTC-3). Special hours by arrangement.</p>
       </div>
     </div>
   </section>
@@ -662,15 +733,15 @@
     <div class="site-footer__cols">
       <div class="site-footer__col">
         <p class="site-footer__heading">Address</p>
-        <p>94 Barcelos Domingos Street<br>Rio de Janeiro, Brazil<br>23080-020</p>
+        <p>Rua Professor Taciel Cylleno, 264<br>Recreio dos Bandeirantes<br>Rio de Janeiro - RJ / Brazil<br>ZIP Code: 22790-010</p>
       </div>
       <div class="site-footer__col">
         <p class="site-footer__heading">Business Hours</p>
-        <p>Monday to Friday<br>8:00 AM – 8:00 PM (Brasília time)<br>Special hours by arrangement</p>
+        <p>Monday to Friday<br>9:00 AM – 6:00 PM (UTC-3)<br>Special hours by arrangement</p>
       </div>
       <div class="site-footer__col">
         <p class="site-footer__heading">Contact</p>
-        <p>qualityagencylatam@gmail.com<br>+55 21 99080-5076</p>
+        <p>qualityagencylatam@gmail.com<br>+55 21 98510-6987</p>
       </div>
     </div>
 
@@ -679,7 +750,7 @@
 </footer>
 
 <!-- ============ WHATSAPP FLOATING BUTTON ============ -->
-<a href="https://wa.me/5521990805076" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat with us on WhatsApp">
+<a href="https://wa.me/5521985106987" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat with us on WhatsApp">
   <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <path fill="#FFFFFF" d="M16.004 3C9.04 3 3.4 8.64 3.4 15.604c0 2.61.78 5.04 2.12 7.07L3.6 28.6l6.12-1.88a12.55 12.55 0 0 0 6.28 1.68c6.964 0 12.604-5.64 12.604-12.604C28.604 8.64 22.968 3 16.004 3zm0 23.04c-2.06 0-4.06-.56-5.8-1.62l-.42-.25-3.62 1.11 1.13-3.53-.27-.43a10.27 10.27 0 0 1-1.58-5.45c0-5.74 4.66-10.4 10.42-10.4 5.76 0 10.42 4.66 10.42 10.4 0 5.74-4.66 10.42-10.42 10.42zm5.7-7.8c-.31-.16-1.84-.91-2.12-1.01-.28-.1-.49-.16-.69.16-.2.31-.79 1.01-.97 1.22-.18.2-.36.22-.67.07-.31-.16-1.3-.48-2.48-1.53-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.48.14-.64.16-.16.36-.42.54-.62.18-.2.24-.35.36-.58.12-.23.06-.42-.04-.58-.1-.16-.91-2.2-1.25-3.02-.33-.78-.66-.68-.91-.69-.23-.01-.49-.01-.76-.01-.27 0-.7.1-1.07.49-.36.39-1.37 1.34-1.37 3.27 0 1.93 1.4 3.79 1.6 4.05.2.26 2.69 4.11 6.52 5.6 3.83 1.49 3.83.99 4.52.93.69-.07 2.24-.91 2.56-1.79.31-.88.31-1.63.22-1.79-.09-.16-.31-.25-.62-.4z"/>
   </svg>

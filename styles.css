@@ -1018,3 +1018,16 @@ textarea { resize: vertical; }
   .whatsapp-float { width: 54px; height: 54px; bottom: 1.2rem; right: 1.2rem; }
   .whatsapp-float svg { width: 28px; height: 28px; }
 }
+
+/* ---- Google Translate: hide default toolbar/banner (custom EN / PT-BR buttons are used) ---- */
+.goog-te-banner-frame, .goog-te-banner-frame.skiptranslate, iframe.skiptranslate { display: none !important; }
+body { top: 0 !important; }
+.goog-logo-link, .goog-te-gadget span { display: none !important; }
+.goog-text-highlight { background: none !important; box-shadow: none !important; }
+#goog-gt-tt, .goog-tooltip, .goog-tooltip:hover { display: none !important; }
+
+.tz-widget__base {
+  font-size: 0.82rem;
+  color: var(--brown-soft);
+  margin-top: 0.6rem;
+}
