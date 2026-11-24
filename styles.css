@@ -1031,3 +1031,13 @@ body { top: 0 !important; }
   color: var(--brown-soft);
   margin-top: 0.6rem;
 }
+
+.site-footer__seo {
+  max-width: 720px;
+  margin: 1.8rem auto 0;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  opacity: 0.75;
+  text-align: center;
+}
+.site-footer__seo-kw { display: block; margin-top: 0.4rem; font-weight: 600; }
